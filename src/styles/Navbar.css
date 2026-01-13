@@ -11,10 +11,6 @@
 
 .navbar.scrolled {
     padding: 1rem 0;
-}
-
-/* Reuse the glass class from global.css if needed, or define specific behavior */
-.navbar.scrolled {
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -34,6 +30,9 @@
 .navbar-logo {
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 60;
+    /* Ensure logo is above mobile menu */
 }
 
 .logo-text {
@@ -119,10 +118,66 @@
     background: none;
     border: none;
     cursor: pointer;
+    position: relative;
+    z-index: 60;
+    /* Ensure button is above mobile menu */
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (min-width: 768px) {
     .mobile-menu-btn {
         display: none;
     }
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-brand-emerald);
+    z-index: 55;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-in-out;
+    transform: translateY(-20px);
+}
+
+.mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.mobile-nav-link {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+    color: #fafafa;
+    font-family: var(--font-serif);
+    transition: color 0.3s;
+}
+
+.mobile-nav-link:hover {
+    color: var(--color-accent-500);
+}
+
+.mobile-secure-btn {
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent-400);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: rgba(212, 175, 55, 0.05);
 }
