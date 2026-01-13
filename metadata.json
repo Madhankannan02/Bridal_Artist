@@ -1,0 +1,7 @@
+{
+  "name": "Amritha Hair and Makeup | Bridal Couture Artistry",
+  "description": "A high-tech, luxury single-page website for a premier bridal hair and makeup artist featuring immersive animations and couture services.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
