@@ -7,6 +7,7 @@ const Contact = () => {
         name: '',
         date: '',
         email: '',
+        mobile: '',
         vision: '',
         message: ''
     });
@@ -24,6 +25,42 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validation Logic
+        const nameRegex = /^[a-zA-Z\s]+$/;
+        const mobileRegex = /^\d{10}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!nameRegex.test(formData.name)) {
+            setPopup({
+                show: true,
+                title: 'Invalid Name',
+                message: 'Name architecture requires only letters and spaces. No numbers or symbols allowed.',
+                type: 'error'
+            });
+            return;
+        }
+
+        if (!mobileRegex.test(formData.mobile)) {
+            setPopup({
+                show: true,
+                title: 'Invalid Mobile',
+                message: 'Communication protocol requires exactly 10 digits for the mobile number.',
+                type: 'error'
+            });
+            return;
+        }
+
+        if (!emailRegex.test(formData.email)) {
+            setPopup({
+                show: true,
+                title: 'Invalid Email',
+                message: 'Please provide a valid digital contact address.',
+                type: 'error'
+            });
+            return;
+        }
+
         setStatus('submitting');
 
         try {
@@ -35,7 +72,7 @@ const Contact = () => {
 
             if (response.ok) {
                 setStatus('success');
-                setFormData({ name: '', date: '', email: '', vision: '', message: '' });
+                setFormData({ name: '', date: '', email: '', mobile: '', vision: '', message: '' });
 
                 setPopup({
                     show: true,
@@ -151,17 +188,31 @@ const Contact = () => {
                                 </div>
                             </div>
 
-                            <div className="form-group">
-                                <label>Digital Contact</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    className="form-input"
-                                    placeholder="EMAIL@PROTOCOL.COM"
-                                    required
-                                />
+                            <div className="form-grid">
+                                <div className="form-group">
+                                    <label>Digital Contact</label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className="form-input"
+                                        placeholder="EMAIL@PROTOCOL.COM"
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label>Mobile Comms</label>
+                                    <input
+                                        type="tel"
+                                        name="mobile"
+                                        value={formData.mobile}
+                                        onChange={handleChange}
+                                        className="form-input"
+                                        placeholder="+44 7700 900000"
+                                        required
+                                    />
+                                </div>
                             </div>
 
                             <div className="form-group">
