@@ -1,8 +1,14 @@
 .feedback-section {
-    padding: 8rem 0;
+    padding: 4rem 0;
     background-color: var(--color-brand-emerald);
     position: relative;
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .feedback-section {
+        padding: 8rem 0;
+    }
 }
 
 .feedback-bg-spinners {
