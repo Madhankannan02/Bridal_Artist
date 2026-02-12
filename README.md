@@ -8,6 +8,9 @@
 
 A professional and elegant web application designed for a bridal artist to showcase their portfolio, services, and client testimonials. Built with modern web technologies to ensure a responsive and seamless user experience.
 
+![Bridal Artist Website Preview](public/image.png)
+
+
 ## ✨ Features
 
 -   **Responsive Design**: Optimized for all devices, from desktops to mobile phones.
