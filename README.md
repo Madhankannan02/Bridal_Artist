@@ -25,7 +25,7 @@ A professional and elegant web application designed for a bridal artist to showc
 -   **Frontend**: [React](https://reactjs.org/)
 -   **Build Tool**: [Vite](https://vitejs.dev/)
 -   **Styling**: CSS Modules
--   **Linting**: [ESLint](https://eslint.org/)
+
 
 ## 🚀 Getting Started
 
